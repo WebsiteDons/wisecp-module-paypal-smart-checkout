@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+* PayPal Smart Payment Gateway
+*
+* @version 1.0
+* @package MaaxPayPal
+* @author Alex Madison 
+* @copyright (C) 2009-2022 WebsiteDons.com
+* @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
+* 
+* @Description: Markup format to set settings form fields. The converter is WD::form()
+*/
+-->
+<form>
+	<fieldset>
+		<field 
+		type="text" 
+		name="email" 
+		required="1" 
+		hint="payment@thesite.com" 
+		fnote="note_setform_admin_email" 
+		label="Admin Email" 
+		/>
+		<field 
+		type="text" 
+		name="client_id" 
+		required="1" 
+		hint="AncNdhreyuMhdg..." 
+		fnote="note_setform_clientid" 
+		label="Client ID" 
+		/>
+		<field 
+		type="text" 
+		name="secret_key" 
+		label="Secret key" 
+		/>
+		<field 
+		type="text" 
+		name="sandbox" 
+		hint="AncNdhreyuMhdg..." 
+		fnote="note_setform_clientid" 
+		label="Sandbox ID" 
+		/>
+		<field 
+		type="text" 
+		name="sandbox_ip" 
+		hint="76.89.34.6,4032034025696660,0924,005" 
+		fnote="note_setform_myip" 
+		label="IP address for sandbox" 
+		/>
+		<field 
+		type="switch" 
+		name="enable_sandbox" 
+		default="0" 
+		label="Enable Sandbox" 
+		/>
+		
+		<field 
+		type="text" 
+		name="commission_rate" 
+		label="Commission rate" 
+		/>
+		<field 
+		type="list" 
+		options="currency" 
+		name="convert_to" 
+		label="Currency" 
+		/>
+
+		<field 
+		type="switch" 
+		name="subscription_status" 
+		default="0" 
+		label="Enable Subscription" 
+		/>
+		
+		<field 
+		type="switch" 
+		name="force_subscription" 
+		default="0" 
+		label="Require subscription" 
+		/>
+		<field 
+		type="list" 
+		name="funding_type" 
+		options="{'bancroft':'Bancroft'}" 
+		multiple="1" 
+		label="Funding options" 
+		/>
+		
+		<field 
+		type="text" 
+		name="funding_disable" 
+		fnote="note_setform_disable_fund" 
+		hint="paylayter,venmo" 
+		label="Disable default funding" 
+		/>
+		
+		<!-- button styling -->
+		<field type="group" class="graybg" gtitle="Button Styling">
+			<gfield 
+			type="number" 
+			name="btnheight" 
+			min="25" 
+			max="55" 
+			default="40" 
+			fnote="note_setform_btnheight" 
+			label="Height" 
+			/>
+			<gfield 
+			type="list" 
+			name="btnstyle" 
+			options="{'rect':'Rectangle','pill':'Pill'}" 
+			label="Button Style" 
+			/>
+			<gfield 
+			type="list" 
+			name="btnalign" 
+			options="{'vertical':'Vertical','horizontal':'Horizontal'}" 
+			label="Button alignment" 
+			/>
+			<gfield 
+			type="list" 
+			name="btncolor" 
+			options="{'gold':'Gold','blue':'Blue','silver':'Silver','white':'White','black':'Black'}" 
+			label="Button Color" 
+			/>
+			<gfield 
+			type="list" 
+			name="btnlabel" 
+			options="{
+			'paypal':'PayPal',
+			'checkout':'PayPal checkout',
+			'buynow':'PayPal Buy Now',
+			'pay':'Pay with PayPal',
+			'installment':'PayPal Pay by installments'
+			}" 
+			fnote="note_setform_btnlbl" 
+			label="Button Label" 
+			/>
+		</field>
+		
+	</fieldset>
+</form>

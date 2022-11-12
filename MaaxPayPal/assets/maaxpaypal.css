@@ -1,0 +1,136 @@
+#wrapper input,
+#wrapper form textarea {
+	font-family: monospace,"times new roman";
+}
+
+#wrapper input,
+#wrapper form textarea,
+#wrapper form select {
+	border: 1px solid #ddd;
+	padding: 10px;
+	border-radius: 3px;
+}
+#wrapper input[type="text"],
+#wrapper input[type="email"],
+#wrapper input[type="date"] {
+	padding: 10px;
+}
+#wrapper form select {
+	padding: initial;
+}
+
+
+#wrapper .adminpagecon {
+	width: auto;
+}
+
+.flex {display: flex;}
+
+
+/*FORMS*/
+.wd-form {
+}
+.wd-form .fieldset {
+	float: none; 
+	clear: both; 
+	display: block; 
+	margin-bottom: 30px; 
+	overflow: hidden;
+}
+.wd-form h4 {
+	margin-top: 30px; 
+	background: #ddd; 
+	padding: 5px; 
+	border-radius: 4px 4px 0 0;
+}
+
+.wd-form .control-group {
+	clear: both;
+	overflow: hidden;
+	display: flex;
+	margin-bottom: 10px;
+}
+.wd-form .label, .wd-form .control {
+	width: 100%;
+}
+
+.wd-form .label {
+	width: 190px;
+}
+.wd-form small, .wd-form label {
+	display: block;
+}
+.wd-form small {
+	font-style: italic;
+	color: #666;
+}
+
+.wd-form .control input,
+.wd-form .control select {
+	background: #fff;
+}
+.wd-form .control input[type="text"] {width: 96%;}
+.wd-form .control input[type="number"] {
+	width: 80px; 
+	padding: 0 !important; 
+	padding-left: 2px !important;
+}
+.wd-form input[required="required"] {
+	border-color: #f4efd7 !important;
+	background-color: #f4f1e3 !important;
+}
+.wd-form select {
+	width: auto !important;
+	min-width: 200px;
+}
+.wd-form select.s2-multiple {
+	width: 300px !important;
+}
+.wd-form .switch label {
+	display: flex; 
+	overflow: hidden;
+	cursor: pointer;
+	padding: 3px 9px;
+}
+.wd-form .switch label span {
+	
+}
+.wd-form .switch label.yes {
+	background: #b2d8ad;
+	border-radius: 4px 0 0 4px;
+}
+.wd-form .switch label.no {
+	background: #ddd;
+	border-radius: 0 4px 4px 0;
+}
+
+/*Field group*/
+.wd-form .fgroup {margin: 10px 0;}
+.wd-form .fgroup .gfields {
+	display: flex;
+	flex-wrap: wrap;
+	border: 1px solid #ddd;
+	padding: 10px;
+	justify-content: space-between; 
+}
+.wd-form .fgroup .control-group {
+	display: block;
+}
+.wd-form .fgroup h4 {
+	margin: 0;
+}
+.wd-form .graybg {
+	background: #f7f7f7;
+}
+
+.small-btn {clear: both;}
+.small-btn a {
+	text-transform: uppercase !important;
+	display: inline-block;
+	padding: 5px;
+	background: #eee;
+	border-radius: 3px;
+	line-height: normal;
+	font-size: 11px;
+	font-family: arial;
+}
