@@ -13,3 +13,5 @@ https://developer.paypal.com/dashboard/creditCardGenerator
 
 Real time test panel
 https://developer.paypal.com/demo/checkout/#/pattern/server
+
+![paypal-smart-modal](https://user-images.githubusercontent.com/42153624/201499044-a3b2db01-ab32-4008-8ad3-4e67792d2e44.jpg)
