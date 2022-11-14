@@ -2,7 +2,7 @@
 /**
 * PayPal Smart Payment Gateway
 *
-* @version 1.0
+* @version 1.0.3
 * @package MaaxPayPal
 * @author Alex Mathias 
 * @copyright (C) 2009-2022 WebsiteDons.com
