@@ -18,7 +18,11 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 
 ![Modal window](https://user-images.githubusercontent.com/42153624/201633538-73aaef47-f9ec-47e4-81b9-94e15efeaefd.jpg)
 
-**Configuration Screen**
+## Configuration Screen
+**Required Fields**
+
+* Primary PayPal account email address
+* Client ID string
 
 ![Configuration screen](https://user-images.githubusercontent.com/42153624/201631963-8b14b098-0a14-40b3-9f91-cf3769b5b932.png)
 
