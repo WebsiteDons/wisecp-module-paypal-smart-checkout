@@ -36,3 +36,4 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 * Commission method not operational though the field exist
 * Secret Key not needed and will be removed
 
+If you encounter errors and have a GitHub account, post issues here. https://github.com/WebsiteDons/wisecp-module-paypal-smart-checkout/issues
