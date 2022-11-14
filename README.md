@@ -19,3 +19,6 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 **Configuration Screen**
 
 ![Module config screen](https://user-images.githubusercontent.com/42153624/201557493-f442ca23-ef0f-466b-85a9-a48009c9c7fd.jpg)
+
+## Vendors
+* Bootstrap 5.2.2
