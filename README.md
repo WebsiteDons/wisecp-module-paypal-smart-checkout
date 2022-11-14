@@ -27,3 +27,9 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 ## Installation
 * Extract and open parent folder
 * Upload the package **MaaxPayPal** folder to `coremio/modules/Payment`
+## Known Issues
+* the test connection function does nothing because the AJAX process is not connected
+* Invoice bulk payment needs to be configured. Currently only handles single invoice and new purchase.
+* Subscription method not operational though the fields exist in configuration
+* Commission method not operational though the field exist
+* Secret Key not needed and will be removed
