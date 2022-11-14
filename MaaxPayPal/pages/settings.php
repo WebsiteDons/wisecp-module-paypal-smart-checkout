@@ -7,7 +7,7 @@
 * @copyright (C) 2009-2022 WebsiteDons.com
 * @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
 *
-* @Description: The HTML form is loaded from the included _vars.php using variable $fields
+* @Description: The HTML form is loaded from XML using variable $fields
 */
 
 defined('CORE_FOLDER') || exit('YourDomain.com');

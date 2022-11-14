@@ -4,11 +4,11 @@
 * PayPal Smart Payment Gateway
 *
 * @package MaaxPayPal
-* @author Alex Mathias / Nadal Kumar / Peter Walker
+* @author Alex Madison / Nadal Kumar / Peter Walker
 * @copyright (C) 2009-2022 WebsiteDons.com
 * @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
 * 
-* @Description: Markup format to set settings form fields. The converter is WD::form()
+* @Description: Markup format to set settings form fields. The converter is wcpForm::fields()
 */
 -->
 <form>

@@ -1,8 +1,10 @@
 <?php 
+
 return [
     'invoice-name'             => 'Payment',
     'option-name'              => 'Credit / Debit Card',
     'name'                     => 'MaaxPayPal',
+	'metadesc'					=> 'Allow modal window form sourced from PayPal in iframe to avoid sending buyer to PayPal website',
     'redirect-message'         => 'You are redirecting to PayPal',
     'description'              => 'To be able to accept payments all over the world with Paypal, fill in the required fields below.',
     'email'                    => 'Email Address',

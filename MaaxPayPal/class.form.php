@@ -1,7 +1,5 @@
 <?php 
 /**
-* Form processor
-*
 * @package MaaxPayPal
 * @author Alex Mathias / Nadal Kumar / Peter Walker
 * @copyright (C) 2009-2022 WebsiteDons.com

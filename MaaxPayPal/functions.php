@@ -8,8 +8,6 @@
 * @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
 */
 
-// debug
-// replace IP address with your location to out put bugging just for you
 if( !function_exists('dump') ) {
 	function dump($var, $myip=false) {
 		$out = print_r($var, true);
@@ -17,6 +15,19 @@ if( !function_exists('dump') ) {
 		if( vip() == '76.108.97.98' )
 			echo '<pre>'.$out.'</pre>';
 	}
+}
+
+// get the plain text meta details of file header
+function getFileMeta($file, $start=0,$end=10) {
+	$data = file($file,FILE_IGNORE_NEW_LINES|FILE_SKIP_EMPTY_LINES);
+	$new = array_slice($data, $start, $end);
+	$nt=[];
+	foreach($new as $val) {
+		list($lbl,$txt) = explode(':',$val);
+		$nt[$lbl] = $txt;
+	}
+	
+	return $nt;
 }
 
 function getVar(&$var,$default='') 

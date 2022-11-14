@@ -146,3 +146,11 @@
 	display: block;
 	width: 100%;
 }
+
+.center {text-align: center;}
+.modmeta {float: left;}
+.modmeta small {
+	font-size: 12px;
+	font-weight: 100;
+	display: block;
+}

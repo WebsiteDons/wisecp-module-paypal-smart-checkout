@@ -1,18 +1,22 @@
 <?php
 /**
-* PayPal Smart Payment Gateway
-*
-* @version 1.0.4
-* @package MaaxPayPal
-* @author Alex Mathias 
-* @copyright (C) 2009-2022 WebsiteDons.com
-* @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
+Title: WISECP PayPal Smart Payment Gateway
+
+Version: 1.0.5
+Package: MaaxPayPal
+Author: Alex Mathias / Nadal Kumar / Peter Walker
+Copyright: Copyright (C) 2009-2022 WebsiteDons.com
+License: License GNU/GPL: http://www.gnu.org/copyleft/gpl.html
+Description: Allow modal window form sourced from PayPal in iframe to avoid sending buyer to PayPal website
 */
 
-defined('CORE_FOLDER') || exit('YourDomain.com');
+defined('CORE_FOLDER') || exit('WebsiteDons.com');
 
 include_once 'functions.php';
 include_once 'class.form.php';
+if( !class_exists('Money') ) {
+	include_once HELPER_DIR.'money.php';
+}
 
 class MaaxPayPal extends PaymentGatewayModule
 {
@@ -20,28 +24,29 @@ class MaaxPayPal extends PaymentGatewayModule
 	public $name,$commission=true;
 	public $config=[],$lang=[],$page_type = 'in-page',$callback_type='server-sided';
 	public $payform=false;
-	private static $conf;
 
 	function __construct() 
 	{
+		$this->filemeta = makeobj(getFileMeta(__DIR__.'/'.__CLASS__.'.php',2,7));
+		$this->config_file 	= __DIR__.'/config.php';
+		$this->name			= __CLASS__;
 		$this->makeConfig();
-		$this->ver = '1.0.4';
 		
-		$this->config	= Modules::Config('Payment',__CLASS__);
-		$this->setting	= (isset(makeobj($this->config)->settings) ? makeobj($this->config)->settings : []);
-		$this->lang		= Modules::Lang('Payment',__CLASS__);
-		$this->name		= __CLASS__;
-		$this->config_file = __DIR__.'/config.php';
-		$this->payform	= __DIR__.'/pages/payform';
-		$this->xmlform	= __DIR__.'/form/form';
+		$this->config		= Modules::Config('Payment',__CLASS__);
+		$this->setting		= (isset(makeobj($this->config)->settings) ? makeobj($this->config)->settings : []);
+		$this->lang			= Modules::Lang('Payment',__CLASS__);
+		$this->currency		= Money::Currency(Config::get('general/currency'))['code'];
+		
+		$this->payform		= __DIR__.'/pages/payform';
+		$this->xmlform		= __DIR__.'/form/form';
 		$this->actionUrl 	= getvar(Controllers::$init->getData('links')['controller']);
 		$this->notify_url	= Controllers::$init->CRLink('payment',[__CLASS__,$this->get_auth_token(),'callback']);
 		$this->success_url	= Controllers::$init->CRLink('pay-successful');
 		$this->failed_url	= Controllers::$init->CRLink('pay-failed');
 		
-		// move bootstrap to resource folder
+		// move bootstrap to core resources folder
 		if( !file_exists(ROOT_DIR.'resources/bootstrap') ) {
-			doUnzip(__DIR__.'/assets/bootstrap.zip',ROOT_DIR.'resources');
+			doUnzip(__DIR__.'/assets/bootstrap.zip', ROOT_DIR.'resources');
 			rename(ROOT_DIR.'resources/bootstrap-5.2.2-dist', ROOT_DIR.'resources/bootstrap');
 		}
 
@@ -52,18 +57,19 @@ class MaaxPayPal extends PaymentGatewayModule
 	public function makeConfig() 
 	{
 		if( !file_exists($this->config_file) ) {
-			$make_config = "<?php 
-			return [
-				'meta'     => [
-					'name'    => '".$this->name."',
-					'version' => '".$this->ver."',
-					'logo'    => 'assets/images/pplogo.png'
-				],
-				'settings' => [
-				'funding_type' => ['venmo', 'paylater']
-				]
-			];
-			";
+			$meta = '<div class="modmeta"><span>'.__CLASS__.'</span><small>'.$this->filemeta->Version.'</small><small>'.$this->filemeta->Description.'</small></div>';
+$make_config = "<?php 
+return [
+	'meta'     => [
+		'name'    => '".$meta."',
+		'version' => '".$this->filemeta->Version."',
+		'logo'    => 'assets/images/pplogo.png'
+	],
+	'settings' => [
+	'funding_type' => ['venmo', 'paylater']
+	]
+];
+";
 			file_put_contents($this->config_file, $make_config);
 		}
 	}
@@ -86,7 +92,7 @@ class MaaxPayPal extends PaymentGatewayModule
 	}
 
 	public function get_commission_rate() {
-		return $this->config['settings']['commission_rate'];
+		return $this->setting->commission_rate;
 	}
 
 	public function cid_convert_code($id=0) {
@@ -110,7 +116,7 @@ class MaaxPayPal extends PaymentGatewayModule
 
 	public function payment_result()
 	{
-		$checkout_id = (!empty($_SESSION['maaxcid']) ? $_SESSION['maaxcid']:'');
+		$checkout_id = (!empty($this->checkout_id) ? $this->checkout_id:'');
 		$error		= false;
 		$txn_id		= 0;
 
@@ -159,7 +165,6 @@ class MaaxPayPal extends PaymentGatewayModule
 	public function smartCheckout()
 	{
 		$config		= $this->setting;
-		$currency 	= (isset($config->currency) ? $config->currency : 'USD');
 		$total		= 0.00;
 		$invcookie=false;
 		
@@ -211,7 +216,7 @@ class MaaxPayPal extends PaymentGatewayModule
 		$defund = (!empty($dis_fund) ? '&disable-funding='.implode(',',$dis_fund):'');
 		$urlq = [
 		'client-id' => (!empty($clid_sb) && !empty($sbip) && $_SERVER['REMOTE_ADDR'] == $sbip ? $clid_sb : $clid),
-		'currency' => $currency
+		'currency' => $this->currency
 		];
 		
 		$html = '
@@ -241,7 +246,7 @@ class MaaxPayPal extends PaymentGatewayModule
 					return actions.order.create({
 						purchase_units: [{
 							"amount":{
-								"currency_code":"'.$currency.'",
+								"currency_code":"'.$this->currency.'",
 								"value": '.$total.'
 							}
 						}]
