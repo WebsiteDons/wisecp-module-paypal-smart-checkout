@@ -24,3 +24,5 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 * Bootstrap 5.2.2
 ## Versions
 * 1.0.4 - 11/13/22
+## Installation
+* Upload the package to `coremio/modules/Payment`
