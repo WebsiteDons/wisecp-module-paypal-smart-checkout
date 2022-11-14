@@ -25,4 +25,5 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 ## Versions
 * 1.0.4 - 11/13/22
 ## Installation
-* Upload the package to `coremio/modules/Payment`
+* Extract and open parent folder
+* Upload the package **MaaxPayPal** folder to `coremio/modules/Payment`
