@@ -2,7 +2,7 @@
 
 A payment module for WISECP E-Commerce application to allow a modal window for payment at checkout which avoids the transfer of the user to the PayPal website.
 
-![paypal-smart checkout buttons modal view](https://user-images.githubusercontent.com/42153624/201498800-2edcb1b2-0822-4314-993e-9f9df8d69107.png)
+![Buttons at checkout](https://user-images.githubusercontent.com/42153624/201633313-2477a548-d7ce-4417-adda-4f9071b2d9fa.jpg)
 
 ### PayPal Developer - Smart Pay Buttons References
 
@@ -14,7 +14,9 @@ https://developer.paypal.com/dashboard/creditCardGenerator
 Real time test panel
 https://developer.paypal.com/demo/checkout/#/pattern/server
 
-![paypal-smart-modal](https://user-images.githubusercontent.com/42153624/201499044-a3b2db01-ab32-4008-8ad3-4e67792d2e44.jpg)
+**Modal Window At Checkout**
+
+![Modal window](https://user-images.githubusercontent.com/42153624/201633538-73aaef47-f9ec-47e4-81b9-94e15efeaefd.jpg)
 
 **Configuration Screen**
 
