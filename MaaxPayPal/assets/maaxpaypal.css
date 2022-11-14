@@ -1,3 +1,10 @@
+/**
+* @package MaaxPayPal
+* @author Alex Mathias / Nadal Kumar / Peter Walker
+* @copyright (C) 2009-2022 WebsiteDons.com
+* @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
+*/
+
 #wrapper input[type="text"],
 #wrapper form textarea {
 	font-family: monospace,"times new roman";

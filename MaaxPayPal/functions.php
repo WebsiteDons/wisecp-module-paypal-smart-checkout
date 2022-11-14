@@ -2,13 +2,14 @@
 /**
 * Common functions for global use
 *
-* @version 1.0
 * @package MaaxPayPal
-* @author Alex Mathias 
+* @author Alex Mathias / Nadal Kumar / Peter Walker
 * @copyright (C) 2009-2022 WebsiteDons.com
 * @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
 */
 
+// debug
+// replace IP address with your location to out put bugging just for you
 if( !function_exists('dump') ) {
 	function dump($var, $myip=false) {
 		$out = print_r($var, true);

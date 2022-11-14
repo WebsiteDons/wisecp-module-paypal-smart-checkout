@@ -2,7 +2,7 @@
 /**
 * PayPal Smart Payment Gateway
 *
-* @version 1.0.3
+* @version 1.0.4
 * @package MaaxPayPal
 * @author Alex Mathias 
 * @copyright (C) 2009-2022 WebsiteDons.com
@@ -25,6 +25,7 @@ class MaaxPayPal extends PaymentGatewayModule
 	function __construct() 
 	{
 		$this->makeConfig();
+		$this->ver = '1.0.4';
 		
 		$this->config	= Modules::Config('Payment',__CLASS__);
 		$this->setting	= (isset(makeobj($this->config)->settings) ? makeobj($this->config)->settings : []);
@@ -50,18 +51,20 @@ class MaaxPayPal extends PaymentGatewayModule
 	// create config.php if missing
 	public function makeConfig() 
 	{
-		$file =  __DIR__.'/config.php';
-		if( !file_exists($file) ) {
+		if( !file_exists($this->config_file) ) {
 			$make_config = "<?php 
 			return [
 				'meta'     => [
 					'name'    => '".$this->name."',
-					'version' => '1.0',
+					'version' => '".$this->ver."',
 					'logo'    => 'assets/images/pplogo.png'
+				],
+				'settings' => [
+				'funding_type' => ['venmo', 'paylater']
 				]
 			];
 			";
-			file_put_contents($file, $make_config);
+			file_put_contents($this->config_file, $make_config);
 		}
 	}
 
@@ -198,12 +201,17 @@ class MaaxPayPal extends PaymentGatewayModule
 			$getip = explode(',', $config->sandbox_ip);
 			$sbip = (isset($getip[0]) ? $getip[0]:'');
 		}
-		
+		// setup http query for paypal sdk
+		$dis_fund = [];
+		foreach(['card','paylater','venmo'] as $def) {
+			if( !in_array($def,(array)$config->funding_type) )
+				$dis_fund[] = $def;
+		}
+		$funding = (!empty($config->funding_type) ? '&enable-funding='.implode(',',(array)$config->funding_type) :'');
+		$defund = (!empty($dis_fund) ? '&disable-funding='.implode(',',$dis_fund):'');
 		$urlq = [
-		'client-id'=> (!empty($clid_sb) && !empty($sbip) && $_SERVER['REMOTE_ADDR'] == $sbip ? $clid_sb : $clid),
-		'enable-funding'=>'venmo',
-		'disable-funding'=>$config->funding_disable,
-		'currency'=>$currency
+		'client-id' => (!empty($clid_sb) && !empty($sbip) && $_SERVER['REMOTE_ADDR'] == $sbip ? $clid_sb : $clid),
+		'currency' => $currency
 		];
 		
 		$html = '
@@ -214,7 +222,7 @@ class MaaxPayPal extends PaymentGatewayModule
 		</div>';
 
 		$js = '
-		<script src="https://www.paypal.com/sdk/js?'.http_build_query($urlq).'"></script>
+		<script src="https://www.paypal.com/sdk/js?'.http_build_query($urlq).$funding.$defund.'"></script>
 		<script>
 		
 		function initPayPalButton() 

@@ -2,9 +2,8 @@
 /**
 * PayPal Smart Payment Gateway
 *
-* @version 1.0
 * @package MaaxPayPal
-* @author Alex Mathias 
+* @author Alex Mathias / Nadal Kumar / Peter Walker
 * @copyright (C) 2009-2022 WebsiteDons.com
 * @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
 */

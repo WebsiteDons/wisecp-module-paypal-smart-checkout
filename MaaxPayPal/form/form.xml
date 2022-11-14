@@ -3,9 +3,8 @@
 /**
 * PayPal Smart Payment Gateway
 *
-* @version 1.0
 * @package MaaxPayPal
-* @author Alex Madison 
+* @author Alex Mathias / Nadal Kumar / Peter Walker
 * @copyright (C) 2009-2022 WebsiteDons.com
 * @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
 * 
@@ -86,17 +85,22 @@
 		<field 
 		type="list" 
 		name="funding_type" 
-		options="{'bancroft':'Bancroft'}" 
+		options="{
+		'venmo':'Venmo',
+		'paylater':'Pay Later',
+		'card':'Credit Card Form',
+		'giropay':'GiroPay',
+		'mybank':'MyBank Brand',
+		'sofort':'Sofort',
+		'sepa':'SEPA-Lastschrift',
+		'bancontact':'Bancontact',
+		'eps':'EPS',
+		'ideal':'iDEAL',
+		'mercadopago':'Mercado Pago',
+		'p24':'Przelewy24'
+		}" 
 		multiple="1" 
 		label="Funding options" 
-		/>
-		
-		<field 
-		type="text" 
-		name="funding_disable" 
-		fnote="note_setform_disable_fund" 
-		hint="paylayter,venmo" 
-		label="Disable default funding" 
 		/>
 		
 		<!-- button styling -->
