@@ -40,7 +40,8 @@ class MaaxPayPal extends PaymentGatewayModule
 		
 		// move bootstrap to resource folder
 		if( !file_exists(ROOT_DIR.'resources/bootstrap') ) {
-			copyFolder(__DIR__.'/assets/bootstrap', ROOT_DIR.'resources/bootstrap');
+			doUnzip(__DIR__.'/assets/bootstrap.zip',ROOT_DIR.'resources');
+			rename(ROOT_DIR.'resources/bootstrap-5.2.2-dist', ROOT_DIR.'resources/bootstrap');
 		}
 
 		parent::__construct();

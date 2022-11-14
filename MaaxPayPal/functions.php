@@ -246,6 +246,30 @@ function copyFolder($src, $dst, $overwrite=true)
 	closedir($dir);
 }
 
+function copyFile($src, $dest, $overwrite=true) 
+{
+	if( $overwrite == false ) {
+		if( file_exists($dest) )
+		return;
+	}
+	
+	copy($src, $dest);
+}
+
+function doUnzip($zipfile,$dest,$del=false) 
+{
+	$zip = new ZipArchive;
+	if( $zip->open($zipfile) === true ) {
+		$zip->extractTo($dest);
+		$zip->close();
+
+		if( $del )
+			unlink($zipfile);
+	}else{
+		echo 'unzip process failed';
+	}
+}
+
 
 
 
