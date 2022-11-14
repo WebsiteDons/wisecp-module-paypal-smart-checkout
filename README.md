@@ -16,4 +16,6 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 
 ![paypal-smart-modal](https://user-images.githubusercontent.com/42153624/201499044-a3b2db01-ab32-4008-8ad3-4e67792d2e44.jpg)
 
-![wisecp-payment-config-screen](https://user-images.githubusercontent.com/42153624/201499237-b8622230-98be-4b59-9c3d-7420ffbcb3ed.jpg)
+**Configuration Screen**
+
+![Module config screen](https://user-images.githubusercontent.com/42153624/201557493-f442ca23-ef0f-466b-85a9-a48009c9c7fd.jpg)
