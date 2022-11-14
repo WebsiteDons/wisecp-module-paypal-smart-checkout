@@ -35,6 +35,13 @@
 		name="secret_key" 
 		label="Secret key" 
 		/>
+		
+		<field 
+		type="switch" 
+		name="enable_sandbox" 
+		default="0" 
+		label="Enable Sandbox" 
+		/>
 		<field 
 		type="text" 
 		name="sandbox" 
@@ -49,23 +56,11 @@
 		fnote="note_setform_myip" 
 		label="IP address for sandbox" 
 		/>
-		<field 
-		type="switch" 
-		name="enable_sandbox" 
-		default="0" 
-		label="Enable Sandbox" 
-		/>
 		
 		<field 
 		type="text" 
 		name="commission_rate" 
 		label="Commission rate" 
-		/>
-		<field 
-		type="list" 
-		options="currency" 
-		name="convert_to" 
-		label="Currency" 
 		/>
 
 		<field 
@@ -80,6 +75,13 @@
 		name="force_subscription" 
 		default="0" 
 		label="Require subscription" 
+		/>
+		
+		<field 
+		type="list" 
+		options="currency" 
+		name="convert_to" 
+		label="Currency" 
 		/>
 		<field 
 		type="list" 

@@ -37,8 +37,12 @@ class MaaxPayPal extends PaymentGatewayModule
 		$this->notify_url	= Controllers::$init->CRLink('payment',[__CLASS__,$this->get_auth_token(),'callback']);
 		$this->success_url	= Controllers::$init->CRLink('pay-successful');
 		$this->failed_url	= Controllers::$init->CRLink('pay-failed');
-		$this->isMaaxPayPal = (View::$init->template_file == 'payment-module.php' && isset($_GET['module']) && $_GET['module'] == 'MaaxPayPal');
 		
+		// move bootstrap to resource folder
+		if( !file_exists(ROOT_DIR.'resources/bootstrap') ) {
+			copyFolder(__DIR__.'/assets/bootstrap', ROOT_DIR.'resources/bootstrap');
+		}
+
 		parent::__construct();
 	}
 	

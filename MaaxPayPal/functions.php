@@ -222,9 +222,46 @@ function isTrue($var) {
 }
 
 
+// Recursive Folder Copy
+function copyFolder($src, $dst, $overwrite=true)
+{
+	if( $overwrite == false ) {
+		if( file_exists($dst) )
+		return;
+	}
+	
+	$dir = opendir($src);
+	@mkdir($dst);
+
+	while(false !== ( $file = readdir($dir)) ) {
+		if (( $file != '.' ) && ( $file != '..' )) {
+			if ( is_dir($src.'/'.$file) ) {
+				copyFolder($src.'/'.$file, $dst.'/'.$file);
+			}
+			else {
+				copy($src.'/'.$file, $dst.'/'.$file);
+			}
+		}
+	}
+	closedir($dir);
+}
+
+
 
 
 ## WISECP ##
+function doHook($name,$print=true) 
+{
+	if( !empty(Hook::run($name)) ) {
+		if( !$print ) {
+			return array_filter(Hook::run($name));
+		}else{
+			foreach(Hook::run($name) as $hook) {
+				echo $hook;
+			}
+		}
+	}
+}
 
 	function loadVars() {
 		$vars = WCP_TPLPATH.'/inc/_vars.php';
@@ -343,6 +380,28 @@ function currenturl($filter=false)
 	}
 }
 
+function lib()
+{
+	$res = APP_URI.'/resources';
+	$val = [
+	'js' => APP_URI.'/resources/js',
+	'jspath' => ROOT_DIR.'resources/js',
+	'css' => APP_URI.'/resources/css',
+	'csspath' => ROOT_DIR.'resources/css',
+	'bs' => APP_URI.'/resources/bootstrap',
+	'plg' => $res.'/assets/plugins',
+	'mod' => APP_URI.'/coremio/modules/Payment/MaaxPayPal',
+	'modpath' => MODULE_DIR.'Payment/MaaxPayPal'
+	];
+	
+	return makeobj($val);
+}
+
+function isMaaxpp() {
+	if( isset($_GET['module']) && $_GET['module'] == 'MaaxPayPal' )
+		return true;
+}
+
 
 
 /*
@@ -358,4 +417,19 @@ foreach($clist as $cl) {
 	$ref = new \ReflectionClass($cl);
 //dump($ref->getFileName());
 }
+*/
+
+/*
+	Hook::add('AdminAreaHeadCSS',1,function() {
+		$css = '<link rel="stylesheet" href="'.lib()->bs.'/css/bootstrap.min.css?v=5.2" />';
+		$css .= '<link rel="stylesheet" href="'.lib()->mod.'/assets/maaxpaypal.css?v='.ft(lib()->modpath.'/assets//maaxpaypal.css').'" />';
+		
+		return $css;
+	});
+
+	Hook::add('AdminAreaHeadJS',1,function() {
+		$js = '<script src="'.lib()->bs.'/js/bootstrap.min.js?v=5.2"></script>';
+		
+		return $js;
+	});
 */

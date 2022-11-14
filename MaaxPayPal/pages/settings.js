@@ -29,6 +29,13 @@ $(document).ready(function()
 			result:modname+"_handler",
 		});
 	});
+	
+	// select2
+	$(".s2-multiple").select2({
+		placeholder: "Select",
+		allowClear: true
+	}); 
+	
 });
 
 function MaaxPayPal_handler(result){

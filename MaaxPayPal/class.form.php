@@ -70,7 +70,7 @@ class wcpForm
 		$type	= getvar($field->type);
 		$name	= getvar($field->name);
 		$note	= (!empty($field->note) ? '<small>'.$field->note.'</small>':'');
-		$lbl	= (!empty($field->label) ? '<div class="label"><label>'.$field->label.'</label>'.$note.'</div>':'');
+		$lbl	= (!empty($field->label) ? '<div class="label"><label class="form-label">'.$field->label.'</label>'.$note.'</div>':'');
 		$fnote	= (!empty($field->fnote) ? '<small>'.wcpForm::txt($field->fnote).'</small>':'');
 		$def = getvar($field->default);
 		
@@ -84,6 +84,7 @@ class wcpForm
 		$max	= (isset($field->max) ? ' max="'.$field->max.'"':'');
 		$req	= (isset($field->required) ? ' required="required"':'');
 		$fval	= getVar($v->value->$name,$def);
+		$tarows = (isset($field->rows) ? $field->rows : 2);
 		
 		$open	= '<div class="control-group">'.$lbl.'<div class="control">';
 		$close	= $fnote.'</div></div>';
@@ -92,7 +93,7 @@ class wcpForm
 		$fld='';
 		switch($type)
 		{
-			case 'text': $fld = '<input type="text" name="'.$name.'" value="'.$fval.'" id="'.$name.'"'.$hint.$req.' />'; break;
+			case 'text': $fld = '<input type="text" name="'.$name.'" value="'.$fval.'" id="'.$name.'" class="form-control"'.$hint.$req.' />'; break;
 			case 'switch': 
 			$fld = self::radioSwitch(['fatt'=>$field,'val'=>$fval]);
 			break;
@@ -100,7 +101,10 @@ class wcpForm
 			$fld = self::select(['fatt'=>$field,'val'=>$fval]);
 			break;
 			case 'number':
-			$fld = '<input type="number" name="'.$name.'" value="'.$fval.'"'.$min.$max.' />';
+			$fld = '<input type="number" name="'.$name.'" value="'.$fval.'" class="form-control"'.$min.$max.' />';
+			break;
+			case 'textarea':
+			$fld = '<textarea name="'.$name.'" class="form-control" rows="'.$tarows.'" id="'.$name.'" '.$hint.'>'.$fval.'</textarea>';
 			break;
 		}
 		
@@ -154,11 +158,11 @@ class wcpForm
 		$multiple= $s2= $s2js= $mval=''; $name = $v->name; $sval = $val->val;
 		if( isset($v->multiple) ) {
 			$multiple = ' multiple="multiple"';
-			$s2 = ' class="s2-multiple"';
+			$s2 = ' s2-multiple';
 			$name = $v->name.'[]';
 			$mval = (array)$val->val;
 		}
-		$field = '<select name="'.$name.'"'.$multiple.$s2.'>';
+		$field = '<select name="'.$name.'" class="form-select'.$s2.'"'.$multiple.'>';
 		
 		foreach($opts as $optval => $optname) {
 			if( !empty($mval) && is_array($mval) ) {
@@ -178,12 +182,13 @@ class wcpForm
 		$val = makeobj($val);
 		$v = $val->fatt;
 		$checked = (1 == $val->val ? ' checked="checked"':'');
+		
 		$field = '
-			<div class="flex switch">
-			<label class="yes"><span>Yes</span><span><input type="radio" name="'.$v->name.'" value="1"'.(1 == $val->val ? ' checked="checked"':'').' /></span></label>
-			<label class="no"><span>No</span><span><input type="radio" name="'.$v->name.'" value="0"'.(empty($val->val) ? ' checked="checked"':'').' /></span></label>
-			</div>
-		'; 
+		<div class="form-check form-switch">
+		<input name="'.$v->name.'" value="1" class="form-check-input" type="checkbox" role="switch" id="'.$v->name.'"'.(1 == $val->val ? ' checked="checked"':'').'>
+		<label class="form-check-label" for="'.$v->name.'"></label>
+		</div>
+		';
 		
 		return $field;
 	}

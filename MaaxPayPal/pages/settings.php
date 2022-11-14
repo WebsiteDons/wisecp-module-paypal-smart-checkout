@@ -13,23 +13,6 @@
 
 defined('CORE_FOLDER') || exit('YourDomain.com');
 
-if( $module->isMaaxPayPal ) 
-{
-	echo '<link rel="stylesheet" href="'.$module->url.'assets/maaxpaypal.css?v='.ft($module->dir.'assets/maaxpaypal.css').'" />';
-	// enable Select2 for multiple option select fields
-	echo '<script>
-	jQuery(function($) { 
-	$(".s2-multiple").select2({
-		placeholder: "Select",
-		allowClear: true
-	}); 
-	});
-	</script>';
-}
-
-$setJS = '
-<script src="'.$module->url.'/pages/settings.js?v='.ft($module->dir.'pages/settings.js').'"></script>
-';
 ?>
 
 <div class="wd-form">
@@ -45,13 +28,12 @@ $setJS = '
 		*/
 		echo wcpForm::fields(['value' => $module->setting, 'xmlform' => $module->xmlform]); ?>
 
-		<button id="<?php echo $module->name; ?>_submit" class="btn"><?php echo $module->lang['save-button']; ?></button>
-		<div class="guncellebtn type-contents type-is-subscription">
-		<button class="btn" id="<?php echo $module->name; ?>_test">
-		<i class="fa fa-plug"></i> <?php echo $module->lang['test-connection']; ?>
-		</button>
-		</div>
+		<button id="<?php echo $module->name; ?>_submit" class="btn btn-primary btn-block"><?php echo $module->lang['save-button']; ?></button>
+		<button class="btn btn-secondary" id="<?php echo $module->name; ?>_test"><?php echo $module->lang['test-connection']; ?></button>
 	</form>
 </div>
 
-<?php echo $setJS; ?>
+<script src="<?php echo $module->url.'/pages/settings.js?v='.ft($module->dir.'pages/settings.js'); ?>"></script>
+<link rel="stylesheet" href="<?php echo $module->url; ?>/assets/maaxpaypal.css?v=<?php echo ft($module->dir.'/assets//maaxpaypal.css'); ?>" />
+<link rel="stylesheet" href="<?php echo lib()->bs; ?>/css/bootstrap.min.css?v=5.2" />
+<script src="<?php echo lib()->bs; ?>/js/bootstrap.min.js?v=5.2"></script>

@@ -1,24 +1,23 @@
-#wrapper input,
+#wrapper input[type="text"],
 #wrapper form textarea {
 	font-family: monospace,"times new roman";
 }
 
-#wrapper input,
-#wrapper form textarea,
-#wrapper form select {
+#wrapper form textarea {
 	border: 1px solid #ddd;
 	padding: 10px;
-	border-radius: 3px;
 }
 #wrapper input[type="text"],
 #wrapper input[type="email"],
 #wrapper input[type="date"] {
-	padding: 10px;
+	
 }
 #wrapper form select {
-	padding: initial;
+	
 }
-
+#wrapper input:read-only {
+	
+}
 
 #wrapper .adminpagecon {
 	width: auto;
@@ -65,15 +64,15 @@
 	color: #666;
 }
 
-.wd-form .control input,
-.wd-form .control select {
-	background: #fff;
+.wd-form .control input:not(.form-check-input),
+.wd-form .control select:not(.form-select) {
+	
 }
-.wd-form .control input[type="text"] {width: 96%;}
+
 .wd-form .control input[type="number"] {
-	width: 80px; 
+	width: 100px; 
 	padding: 0 !important; 
-	padding-left: 2px !important;
+	padding-left: 10px !important;
 }
 .wd-form input[required="required"] {
 	border-color: #f4efd7 !important;
@@ -133,4 +132,10 @@
 	line-height: normal;
 	font-size: 11px;
 	font-family: arial;
+}
+
+.btn {width: auto;}
+.btn.btn-block {
+	display: block;
+	width: 100%;
 }
