@@ -18,7 +18,7 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 
 **Configuration Screen**
 
-![Module config screen](https://user-images.githubusercontent.com/42153624/201557493-f442ca23-ef0f-466b-85a9-a48009c9c7fd.jpg)
+![Configuration screen](https://user-images.githubusercontent.com/42153624/201631963-8b14b098-0a14-40b3-9f91-cf3769b5b932.png)
 
 ## Vendors
 * Bootstrap 5.2.2
@@ -33,3 +33,4 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 * Subscription method not operational though the fields exist in configuration
 * Commission method not operational though the field exist
 * Secret Key not needed and will be removed
+
