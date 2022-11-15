@@ -50,7 +50,9 @@ $mprint = '
 	</div>
 </div>
 
+<?php if( isset($_GET['module']) && $_GET['module'] == 'MaaxPayPal' ) { ?>
 <script src="<?php echo $module->url.'/pages/settings.js?v='.ft($module->dir.'pages/settings.js'); ?>"></script>
 <link rel="stylesheet" href="<?php echo $module->url; ?>/assets/maaxpaypal.css?v=<?php echo ft($module->dir.'/assets//maaxpaypal.css'); ?>" />
 <link rel="stylesheet" href="<?php echo lib()->bs; ?>/css/bootstrap.min.css?v=5.2" />
 <script src="<?php echo lib()->bs; ?>/js/bootstrap.min.js?v=5.2"></script>
+<?php } ?>
