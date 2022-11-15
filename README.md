@@ -41,6 +41,7 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 * Subscription method not operational though the fields exist in configuration
 * Commission method not operational though the field exist
 * Secret Key not needed and will be removed
+* Funding options field only saves value when options are added or when all are cleared. Not saving when single option is removed. Likely a javascript update event in select2 is not firing.
 
 If you encounter errors and have a GitHub account, post issues here. https://github.com/WebsiteDons/wisecp-module-paypal-smart-checkout/issues
 
