@@ -22,7 +22,7 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 **Required Fields**
 
 * Primary PayPal account email address
-* Client ID string
+* Client ID string https://developer.paypal.com/dashboard/
 
 ![Configuration screen](https://user-images.githubusercontent.com/42153624/201631963-8b14b098-0a14-40b3-9f91-cf3769b5b932.png)
 
