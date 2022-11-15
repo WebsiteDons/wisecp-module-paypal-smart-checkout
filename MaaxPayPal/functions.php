@@ -438,6 +438,10 @@ function isMaaxpp() {
 		return true;
 }
 
+if( version_compare(License::get_version(), '3.0.1', '<') ) {
+	
+}
+
 
 
 /*

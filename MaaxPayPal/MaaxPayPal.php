@@ -2,11 +2,12 @@
 /**
 Title: WISECP PayPal Smart Payment Gateway
 
-Version: 1.0.5
 Package: MaaxPayPal
+Version: 1.0.6
 Author: Alex Mathias / Nadal Kumar / Peter Walker
+Website: //github.com/WebsiteDons/wisecp-module-paypal-smart-checkout
 Copyright: Copyright (C) 2009-2022 WebsiteDons.com
-License: License GNU/GPL: http://www.gnu.org/copyleft/gpl.html
+License: GNU/GPL: //www.gnu.org/copyleft/gpl.html
 Description: Allow modal window form sourced from PayPal in iframe to avoid sending buyer to PayPal website
 */
 
@@ -27,7 +28,7 @@ class MaaxPayPal extends PaymentGatewayModule
 
 	function __construct() 
 	{
-		$this->filemeta = makeobj(getFileMeta(__DIR__.'/'.__CLASS__.'.php',2,7));
+		$this->filemeta = makeobj(getFileMeta(__DIR__.'/'.__CLASS__.'.php',2,8));
 		$this->config_file 	= __DIR__.'/config.php';
 		$this->name			= __CLASS__;
 		$this->makeConfig();
@@ -61,7 +62,7 @@ class MaaxPayPal extends PaymentGatewayModule
 $make_config = "<?php 
 return [
 	'meta'     => [
-		'name'    => '".$meta."',
+		'name'    => '".__CLASS__."',
 		'version' => '".$this->filemeta->Version."',
 		'logo'    => 'assets/images/pplogo.png'
 	],

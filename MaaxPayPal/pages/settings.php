@@ -12,9 +12,21 @@
 
 defined('CORE_FOLDER') || exit('YourDomain.com');
 
+// output module meta details
+$mdata = $module->filemeta;
+$mprint = '
+<small>'.$mdata->Title.'</small>
+<small>Version: '.$mdata->Version.'</small>
+<small>Author: '.$mdata->Author.'</small>
+<small>'.$mdata->Copyright.'</small>
+<small>Lic: <a href="http://www.gnu.org/copyleft/gpl.html" target="_blank">'.trim($mdata->License).'</a></small>
+<small><a href="'.trim($mdata->Website).'" target="_blank">Project Website</a></small>
+<small>'.$mdata->Description.'</small>
+';
 ?>
 
-<div class="wd-form">
+<div class="wd-form flex">
+	<div>
 	<form action="<?php echo $module->actionUrl; ?>" method="post" id="<?php echo $module->name; ?>Form">
 		<input type="hidden" name="operation" value="module_controller" />
 		<input type="hidden" name="module" value="<?php echo $module->name; ?>" />
@@ -30,6 +42,12 @@ defined('CORE_FOLDER') || exit('YourDomain.com');
 		<button id="<?php echo $module->name; ?>_submit" class="btn btn-primary btn-block"><?php echo $module->lang['save-button']; ?></button>
 		<button class="btn btn-secondary" id="<?php echo $module->name; ?>_test"><?php echo $module->lang['test-connection']; ?></button>
 	</form>
+	</div>
+	<div class="width-300 mod-meta">
+		<div>
+		<?php echo $mprint; ?>
+		</div>
+	</div>
 </div>
 
 <script src="<?php echo $module->url.'/pages/settings.js?v='.ft($module->dir.'pages/settings.js'); ?>"></script>

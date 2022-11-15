@@ -154,3 +154,31 @@
 	font-weight: 100;
 	display: block;
 }
+
+.flex {display: flex;}
+.width-300 {width: 300px;}
+.pad-20 {padding: 20px;}
+.mod-meta {
+	font-size: 13px;
+	padding-left: 20px;
+}
+.mod-meta hr {
+	margin: 0;
+	padding: 0;
+}
+.mod-meta small {
+	display: block;
+	margin-bottom: 4px;
+}
+
+@media (min-width: 300px) and (max-width: 680px) {
+	.flex {display: block;}
+	.mod-meta {
+		padding: 0;
+		margin-top: 20px;
+		width: 100% !important;
+	}
+	.mod-meta div {
+		padding: 0;
+	}
+}
