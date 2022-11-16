@@ -29,6 +29,7 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 ## Vendors
 * Bootstrap 5.2.2
 ## Versions
+* 1.0.10 - 11/16/22
 * 1.0.9 - 11/16/22
 * 1.0.8 - 11/15/22
 * 1.0.7 - 11/15/22
@@ -48,6 +49,6 @@ If you encounter errors and have a GitHub account, post issues here. https://git
 
 ## TODO
 * Configure invoice bulk payment - **COMPLETED**
-* Add method to set money symbol and decimal based on locale
+* Add method to set money symbol and decimal based on locale - **COMPLETED**
 * 
 
