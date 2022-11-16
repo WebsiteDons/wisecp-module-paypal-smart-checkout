@@ -43,11 +43,12 @@
 	margin-bottom: 30px; 
 	overflow: hidden;
 }
-.wd-form h4 {
+.wd-form h5 {
 	margin-top: 30px; 
 	background: #ddd; 
-	padding: 5px; 
+	padding: 6px 10px; 
 	border-radius: 4px 4px 0 0;
+	color: #3571ba;
 }
 
 .wd-form .control-group {
@@ -62,6 +63,7 @@
 
 .wd-form .label {
 	width: 190px;
+	margin-right: 5px;
 }
 .wd-form small, .wd-form label {
 	display: block;
@@ -110,19 +112,32 @@
 	border-radius: 0 4px 4px 0;
 }
 
+.wd-form .ftitle {
+	clear: both;
+	float: none;
+	margin-top: 15px;
+	border-bottom: 1px solid #3571ba;
+	padding-bottom: 5px;
+	margin-bottom: 8px;
+}
+
 /*Field group*/
-.wd-form .fgroup {margin: 10px 0;}
+.wd-form .fgroup {
+	margin: 10px 0;
+	border-radius: 6px;
+	overflow: hidden;
+	border: 1px solid #ddd;
+}
 .wd-form .fgroup .gfields {
 	display: flex;
 	flex-wrap: wrap;
-	border: 1px solid #ddd;
 	padding: 10px;
 	justify-content: space-between; 
 }
 .wd-form .fgroup .control-group {
 	display: block;
 }
-.wd-form .fgroup h4 {
+.wd-form .fgroup h5 {
 	margin: 0;
 }
 .wd-form .graybg {

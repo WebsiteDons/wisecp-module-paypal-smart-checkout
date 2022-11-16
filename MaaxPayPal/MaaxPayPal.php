@@ -3,7 +3,7 @@
 Title: WISECP PayPal Smart Payment Gateway
 
 Package: MaaxPayPal
-Version: 1.0.7
+Version: 1.0.8
 Author: Alex Mathias / Nadal Kumar / Peter Walker
 Website: //github.com/WebsiteDons/wisecp-module-paypal-smart-checkout
 Copyright: Copyright (C) 2009-2022 WebsiteDons.com

@@ -50,7 +50,7 @@ class wcpForm
 							$f_group[] = self::fieldHtml($gfield,$v);
 						}
 						$gclass = (isset($att->class) ? ' '.$att->class:'');
-						$title = (isset($att->gtitle) ? '<h4>'.$att->gtitle.'</h4>':'');
+						$title = (isset($att->gtitle) ? '<h5>'.$att->gtitle.'</h5>':'');
 						$formhtml .= '<div class="fgroup'.$gclass.'">'.$title.'<div class="gfields">'.implode('',$f_group).'</div></div>';
 					}
 				}
@@ -78,6 +78,7 @@ class wcpForm
 		$type	= getvar($field->type);
 		$name	= getvar($field->name);
 		$note	= (!empty($field->note) ? '<small>'.$field->note.'</small>':'');
+		$title	= (!empty($field->label) ? '<h5>'.$field->label.'</h5>':'');
 		$lbl	= (!empty($field->label) ? '<div class="label"><label class="form-label">'.$field->label.'</label>'.$note.'</div>':'');
 		$fnote	= (!empty($field->fnote) ? '<small>'.wcpForm::txt($field->fnote).'</small>':'');
 		$def = getvar($field->default);
@@ -113,6 +114,10 @@ class wcpForm
 			break;
 			case 'textarea':
 			$fld = '<textarea name="'.$name.'" class="form-control" rows="'.$tarows.'" id="'.$name.'" '.$hint.'>'.$fval.'</textarea>';
+			break;
+			case 'title':
+			$open=$close='';
+			$fld = '<div class="ftitle">'.$title.$note.'</div>';
 			break;
 		}
 		

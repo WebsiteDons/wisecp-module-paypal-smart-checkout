@@ -36,47 +36,6 @@
 		/>
 		
 		<field 
-		type="switch" 
-		name="enable_sandbox" 
-		default="0" 
-		label="Enable Sandbox" 
-		/>
-		<field 
-		type="text" 
-		name="sandbox" 
-		hint="AncNdhreyuMhdg..." 
-		fnote="note_setform_clientid" 
-		label="Sandbox ID" 
-		/>
-		<field 
-		type="text" 
-		name="sandbox_ip" 
-		hint="76.89.34.6,4032034025696660,0924,005" 
-		fnote="note_setform_myip" 
-		label="IP address for sandbox" 
-		/>
-		
-		<field 
-		type="text" 
-		name="commission_rate" 
-		label="Commission rate" 
-		/>
-
-		<field 
-		type="switch" 
-		name="subscription_status" 
-		default="0" 
-		label="Enable Subscription" 
-		/>
-		
-		<field 
-		type="switch" 
-		name="force_subscription" 
-		default="0" 
-		label="Require subscription" 
-		/>
-		
-		<field 
 		type="list" 
 		options="currency" 
 		name="convert_to" 
@@ -146,6 +105,49 @@
 			label="Button Label" 
 			/>
 		</field>
+		
+		<field type="title" note="The following values will be used to enable the PayPal testing API so a sale process can be executed without real credit card" label="Sandbox" />
+		<field 
+		type="switch" 
+		name="enable_sandbox" 
+		default="0" 
+		label="Enable Sandbox" 
+		/>
+		<field 
+		type="text" 
+		name="sandbox" 
+		hint="AncNdhreyuMhdg..." 
+		fnote="note_setform_clientid" 
+		label="Sandbox ID" 
+		/>
+		<field 
+		type="text" 
+		name="sandbox_ip" 
+		hint="76.89.34.6,4032034025696660,0924,005" 
+		fnote="note_setform_myip" 
+		label="IP address for sandbox" 
+		/>
+		
+		<field type="title" label="Auxiliary Options" />
+		<field 
+		type="text" 
+		name="commission_rate" 
+		label="Commission rate" 
+		/>
+
+		<field 
+		type="switch" 
+		name="subscription_status" 
+		default="0" 
+		label="Enable Subscription" 
+		/>
+		
+		<field 
+		type="switch" 
+		name="force_subscription" 
+		default="0" 
+		label="Require subscription" 
+		/>
 		
 	</fieldset>
 </form>
