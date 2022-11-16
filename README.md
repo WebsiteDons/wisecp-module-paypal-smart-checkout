@@ -51,4 +51,15 @@ If you encounter errors and have a GitHub account, post issues here. https://git
 * Configure invoice bulk payment - **COMPLETED**
 * Add method to set money symbol and decimal based on locale - **COMPLETED**
 * 
+## Bulk Payment Process
+During bulk pay the user can choose which invoices to pay and the toal is changed and passed to the session for use by the module. The default action of WISECP is to continue to show the invoices table list when in the selected payment method view. This causes confusion for the user because the list does not correct show the invoice(s) they selected previously, but instead show all as selected with the total of all.
 
+To overcome that issue, a CSS rule with property `display:none` is added to the module view to remove the table.
+
+**Invoice list view with payment method selection**
+
+![bulk-1](https://user-images.githubusercontent.com/42153624/202319213-e56e198f-3d9a-4998-9e65-bcd97cc8b3c6.jpg)
+
+**Invoices list removed in payment method final**
+
+![bulk2](https://user-images.githubusercontent.com/42153624/202319229-abbccd75-b78e-4d29-bf4f-39243674ada6.jpg)
