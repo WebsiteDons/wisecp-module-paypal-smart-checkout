@@ -58,8 +58,7 @@ class MaaxPayPal extends PaymentGatewayModule
 	public function makeConfig() 
 	{
 		if( !file_exists($this->config_file) ) {
-			$meta = '<div class="modmeta"><span>'.__CLASS__.'</span><small>'.$this->filemeta->Version.'</small><small>'.$this->filemeta->Description.'</small></div>';
-$make_config = "<?php 
+	$make_config = "<?php 
 return [
 	'meta'     => [
 		'name'    => '".__CLASS__."',
