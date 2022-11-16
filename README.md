@@ -24,7 +24,7 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 * Primary PayPal account email address
 * Client ID string https://developer.paypal.com/dashboard/
 
-![Configuration screen](https://user-images.githubusercontent.com/42153624/201631963-8b14b098-0a14-40b3-9f91-cf3769b5b932.png)
+![admin-view](https://user-images.githubusercontent.com/42153624/202050254-3a8b1478-3d8e-47fb-953c-45389655ffc3.png)
 
 ## Vendors
 * Bootstrap 5.2.2
@@ -49,3 +49,4 @@ If you encounter errors and have a GitHub account, post issues here. https://git
 * Configure invoice bulk payment
 * Add method to set money symbol and decimal based on locale
 * 
+
