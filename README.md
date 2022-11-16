@@ -29,6 +29,7 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 ## Vendors
 * Bootstrap 5.2.2
 ## Versions
+* 1.0.8 - 11/15/22
 * 1.0.7 - 11/15/22
 * 1.0.5 - 11/14/22
 * 1.0.4 - 11/13/22
