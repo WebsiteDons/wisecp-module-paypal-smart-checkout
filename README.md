@@ -39,7 +39,6 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 * Upload the package **MaaxPayPal** folder to `coremio/modules/Payment`
 ## Known Issues
 * the test connection function does nothing because the AJAX process is not connected
-* Invoice bulk payment needs to be configured. Currently only handles single invoice and new purchase.
 * Subscription method not operational though the fields exist in configuration
 * Commission method not operational though the field exist
 * Secret Key not needed and will be removed
@@ -48,7 +47,7 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 If you encounter errors and have a GitHub account, post issues here. https://github.com/WebsiteDons/wisecp-module-paypal-smart-checkout/issues
 
 ## TODO
-* Configure invoice bulk payment
+* Configure invoice bulk payment - **COMPLETED**
 * Add method to set money symbol and decimal based on locale
 * 
 
