@@ -3,7 +3,7 @@
 Title: WISECP PayPal Smart Payment Gateway
 
 Package: MaaxPayPal
-Version: 1.0.9
+Version: 1.0.10
 Author: Alex Mathias / Nadal Kumar / Peter Walker
 Website: //github.com/WebsiteDons/wisecp-module-paypal-smart-checkout
 Copyright: Copyright (C) 2009-2022 WebsiteDons.com
@@ -58,7 +58,7 @@ class MaaxPayPal extends PaymentGatewayModule
 	public function makeConfig() 
 	{
 		if( !file_exists($this->config_file) ) {
-	$make_config = "<?php 
+$make_config = "<?php 
 return [
 	'meta'     => [
 		'name'    => '".__CLASS__."',
@@ -147,6 +147,17 @@ return [
 		];
 	}
 	
+	// method to output values from checkout object
+	public function val() {
+		$val = makeobj($this->checkout);
+		
+		$index = [
+		'paytotal' => Money::formatter_symbol($val->data->total, $this->currency)
+		];
+		
+		return makeobj($index);
+	}
+	
 	
 	## PAYPAL SMART CHECOUT
 	/*
@@ -166,7 +177,7 @@ return [
 	{
 		$config		= $this->setting;
 		$chk		= makeobj($this->checkout);
-		$total		= (!empty($chk->data->total) ? $chk->data->total:0.00);
+		$total		= (!empty($chk->data->total) ? $chk->data->total:'0.00');
 		$invcookie=false;
 		
 		$clid = (!empty($config->client_id) ? $config->client_id : '');

@@ -38,14 +38,16 @@ if( $module->setting->enable_sandbox && !empty($module->setting->sandbox_ip) )
 
 echo $sandbox_card;
 
+/*
+Remove invoice list when in bulk pay view because it causes confusion if the user has selected the 
+specific invoices to pay when in payment options view and the total value has been passed to the session
+*/
+echo '<style>div.bulkpayment table {display: none !important;}</style>';
 ?>
 
-<h5 class="center"><?php echo $module->lang['pay-info1']; ?></h5>
-<script>
-jQuery(function($) {
-	console.log($("#total_fee").text());
-});
-</script>
+<div class="center alert alert-info">
+<p><?php echo $module->lang['total-now'].$module->val()->paytotal; ?></p>
+</div>
 
 <?php
 if( $autobill )
@@ -84,3 +86,10 @@ if( $autobill )
 }else{
 	echo $module->smartCheckout();
 }
+?>
+<?php if( $module->setting->enable_bootstrap_front && isset($_GET['pmethod']) && $_GET['pmethod'] == 'MaaxPayPal' ) { ?>
+<script src="<?php echo $module->url.'/pages/settings.js?v='.ft($module->dir.'pages/settings.js'); ?>"></script>
+<link rel="stylesheet" href="<?php echo $module->url; ?>/assets/maaxpaypal.css?v=<?php echo ft($module->dir.'/assets//maaxpaypal.css'); ?>" />
+<link rel="stylesheet" href="<?php echo lib()->bs; ?>/css/bootstrap.min.css?v=5.2" />
+<script src="<?php echo lib()->bs; ?>/js/bootstrap.min.js?v=5.2"></script>
+<?php } ?>

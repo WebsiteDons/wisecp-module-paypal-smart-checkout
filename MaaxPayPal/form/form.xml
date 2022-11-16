@@ -104,6 +104,7 @@
 			fnote="note_setform_btnlbl" 
 			label="Button Label" 
 			/>
+			
 		</field>
 		
 		<field type="title" note="title_note_sandbox" label="Sandbox" />
@@ -147,6 +148,12 @@
 		name="force_subscription" 
 		default="0" 
 		label="Require subscription" 
+		/>
+		<field 
+		type="switch" 
+		name="enable_bootstrap_front" 
+		default="0" 
+		label="Enable bootstrap libray in front end" 
 		/>
 		
 	</fieldset>

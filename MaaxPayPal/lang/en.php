@@ -27,6 +27,7 @@ return [
     'pay-with-subscription'    => 'Subscribe Now!',
     'pay-with-normal'          => 'Go to Pay',
     'pay-info1'                => 'Choose a payment method',
+	'total-now'					=> 'Total to be paid today: ',
     'force-subscription'       => 'Force Subscription',
     'force-subscription-desc'  => 'One-time payment cannot be made with PayPal. Payment can only be made by subscription method',
 	'pp-success-notice'			=> '<h3>Thank you for the purchase!</h3><h3 class=\"alert alert-warning\">Please do not exit this page until the process is complete</h3>. <h3>You will be redirected to the confirmation page in a few seconds.</h3>',
