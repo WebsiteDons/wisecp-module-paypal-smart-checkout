@@ -106,7 +106,7 @@
 			/>
 		</field>
 		
-		<field type="title" note="The following values will be used to enable the PayPal testing API so a sale process can be executed without real credit card" label="Sandbox" />
+		<field type="title" note="title_note_sandbox" label="Sandbox" />
 		<field 
 		type="switch" 
 		name="enable_sandbox" 

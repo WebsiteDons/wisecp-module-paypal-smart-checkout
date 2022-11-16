@@ -3,7 +3,7 @@
 Title: WISECP PayPal Smart Payment Gateway
 
 Package: MaaxPayPal
-Version: 1.0.8
+Version: 1.0.9
 Author: Alex Mathias / Nadal Kumar / Peter Walker
 Website: //github.com/WebsiteDons/wisecp-module-paypal-smart-checkout
 Copyright: Copyright (C) 2009-2022 WebsiteDons.com
@@ -166,38 +166,9 @@ return [
 	public function smartCheckout()
 	{
 		$config		= $this->setting;
-		$total		= 0.00;
+		$chk		= makeobj($this->checkout);
+		$total		= (!empty($chk->data->total) ? $chk->data->total:0.00);
 		$invcookie=false;
-		
-		// new order
-		if( strstr(currentUrl(),'case/pay') ) {
-			if( class_exists('Basket') ) 
-			{
-				$sale=[];
-				$orders = Basket::get_checkout($this->checkout_id);
-				foreach($orders['items'] as $order)
-				{
-					$sale[] = $order['total_amount'];
-				}
-
-				$total = number_format(array_sum($sale), 2, '.', '');
-			}
-		}else
-		// single invoice 
-		if( strstr(currentUrl(),'invoice-detail') ) {
-			$inv=[];
-			if( !empty(unpaid_invoices(udata()->id)) ) {
-				foreach(unpaid_invoices(udata()->id,'id,duedate,total') as $invtot) {
-					$inv[] = $invtot['total'];
-				}
-			}
-
-			$total = number_format(array_sum($inv), 2, '.', '');
-		}else
-		// bulk invoice
-		if( strstr(currentUrl(),'bulk-payment') ) {
-			$invcookie = true;
-		}
 		
 		$clid = (!empty($config->client_id) ? $config->client_id : '');
 		$clid_sb = (!empty($config->sandbox) ? $config->sandbox : '');
@@ -280,5 +251,6 @@ return [
 		
 		return $html . $js;
 	}
+	
 }
 

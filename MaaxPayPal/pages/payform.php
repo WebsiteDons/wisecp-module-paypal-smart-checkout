@@ -41,6 +41,11 @@ echo $sandbox_card;
 ?>
 
 <h5 class="center"><?php echo $module->lang['pay-info1']; ?></h5>
+<script>
+jQuery(function($) {
+	console.log($("#total_fee").text());
+});
+</script>
 
 <?php
 if( $autobill )

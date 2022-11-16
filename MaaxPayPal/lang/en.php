@@ -37,6 +37,7 @@ return [
 	Set your local IP address to trigger the sandbox use only for you while your customers continue to send payments. Your IP is <pre>[MYIP]</pre>
 	If you have generated a test credit card at <a href="https://developer.paypal.com/dashboard/creditCardGenerator" target="_blank">PayPal card generator</a>, include the values <strong>after</strong> the IP address separated by commas in the exact order as <br/><pre>IP,CARD-NUMBER,CARD-DATE,CARD-PIN</pre>',
 	'note_setform_disable_fund'=>'Disable default funding types. Separate each with a comma',
-	'note_setform_btnheight'=>'The minimum height is 25 and the maximum is 55',
-	'note_setform_btnlbl'=>'The installment feature is available only in MX and BR'
+	'note_setform_btnheight'=>'Min 25 Max 55',
+	'note_setform_btnlbl'=>'Installment only in MX and BR',
+	'title_note_sandbox' => 'The following values will be used to enable the PayPal testing API so a sale process can be executed without real credit card'
 ];

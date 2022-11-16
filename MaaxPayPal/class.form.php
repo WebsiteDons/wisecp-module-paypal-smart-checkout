@@ -1,5 +1,7 @@
 <?php 
 /**
+* @purpose XML form field interpreter
+*
 * @package MaaxPayPal
 * @author Alex Mathias / Nadal Kumar / Peter Walker
 * @copyright (C) 2009-2022 WebsiteDons.com
@@ -77,9 +79,9 @@ class wcpForm
 		
 		$type	= getvar($field->type);
 		$name	= getvar($field->name);
-		$note	= (!empty($field->note) ? '<small>'.$field->note.'</small>':'');
-		$title	= (!empty($field->label) ? '<h5>'.$field->label.'</h5>':'');
-		$lbl	= (!empty($field->label) ? '<div class="label"><label class="form-label">'.$field->label.'</label>'.$note.'</div>':'');
+		$note	= (!empty($field->note) ? '<small>'.wcpForm::txt($field->note).'</small>':'');
+		$title	= (!empty($field->label) ? '<h5>'.wcpForm::txt($field->label).'</h5>':'');
+		$lbl	= (!empty($field->label) ? '<div class="label"><label class="form-label">'.wcpForm::txt($field->label).'</label>'.$note.'</div>':'');
 		$fnote	= (!empty($field->fnote) ? '<small>'.wcpForm::txt($field->fnote).'</small>':'');
 		$def = getvar($field->default);
 		
@@ -88,7 +90,7 @@ class wcpForm
 		$fnote_rpl = [vip()];
 		$fnote = str_replace($fnote_sc,$fnote_rpl,$fnote);
 		
-		$hint	= (!empty($field->hint) ? ' placeholder="'.$field->hint.'"':'');
+		$hint	= (!empty($field->hint) ? ' placeholder="'.wcpForm::txt($field->hint).'"':'');
 		$min	= (isset($field->min) ? ' min="'.$field->min.'"':'');
 		$max	= (isset($field->max) ? ' max="'.$field->max.'"':'');
 		$req	= (isset($field->required) ? ' required="required"':'');

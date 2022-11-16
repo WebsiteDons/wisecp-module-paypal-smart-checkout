@@ -1,6 +1,6 @@
 <?php
 /**
-* Common functions for global use
+* @purpose Common functions for global use
 *
 * @package MaaxPayPal
 * @author Alex Mathias / Nadal Kumar / Peter Walker
