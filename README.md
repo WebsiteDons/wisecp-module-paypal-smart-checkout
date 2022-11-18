@@ -24,7 +24,7 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 * Primary PayPal account email address
 * Client ID string https://developer.paypal.com/dashboard/
 
-![admin-view](https://user-images.githubusercontent.com/42153624/202050254-3a8b1478-3d8e-47fb-953c-45389655ffc3.png)
+![admin view](https://user-images.githubusercontent.com/42153624/202801428-e03f1e9b-ee63-42e0-a84e-ffb217c93c33.png)
 
 ## Vendors
 * Bootstrap 5.2.2
@@ -64,3 +64,4 @@ To overcome that issue, a CSS rule with property `display:none` is added to the 
 **Invoices list removed in payment method final**
 
 ![bulk2](https://user-images.githubusercontent.com/42153624/202319229-abbccd75-b78e-4d29-bf4f-39243674ada6.jpg)
+
