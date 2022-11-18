@@ -49,7 +49,7 @@ https://developer.paypal.com/demo/checkout/#/pattern/server
 * Secret Key not needed and will be removed
 * Funding options field only saves value when options are added or when all are cleared. Not saving when single option is removed. Likely a javascript update event in select2 is not firing.
 
-If you encounter errors and have a GitHub account, post issues here. https://github.com/WebsiteDons/wisecp-module-paypal-smart-checkout/issues
+If you encounter errors and have a GitHub account, post issues here. https://github.com/WebsiteDons/wisecp-module-paypal-smart-checkout/issues see the mardown guide for syntax to use for highlighting codes etc https://www.markdownguide.org/extended-syntax/
 
 ## TODO
 * Configure invoice bulk payment - **COMPLETED**
