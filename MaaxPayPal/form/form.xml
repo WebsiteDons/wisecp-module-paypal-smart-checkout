@@ -131,24 +131,26 @@
 		
 		<field type="title" label="Auxiliary Options" />
 		<field 
-		type="text" 
-		name="commission_rate" 
-		label="Commission rate" 
+		type="number" 
+		name="transaction_fee" 
+		fnote="Default to percent" 
+		label="Transaction Fee" 
+		/>
+		<field 
+		type="switch" 
+		name="flat_fee" 
+		default="0" 
+		label="Set as flat fee" 
 		/>
 
 		<field 
-		type="switch" 
+		type="list" 
 		name="subscription_status" 
+		options="{'0':'No','1':'Yes','2':'Enable and require'}" 
 		default="0" 
 		label="Enable Subscription" 
 		/>
 		
-		<field 
-		type="switch" 
-		name="force_subscription" 
-		default="0" 
-		label="Require subscription" 
-		/>
 		<field 
 		type="switch" 
 		name="enable_bootstrap_front" 

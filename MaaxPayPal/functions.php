@@ -8,6 +8,7 @@
 * @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
 */
 
+
 if( !function_exists('dump') ) {
 	function dump($var, $myip=false) {
 		$out = print_r($var, true);
@@ -16,6 +17,7 @@ if( !function_exists('dump') ) {
 			echo '<pre>'.$out.'</pre>';
 	}
 }
+
 
 // get the plain text meta details of file header
 function getFileMeta($file, $start=0,$end=10) {

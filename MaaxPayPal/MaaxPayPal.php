@@ -3,7 +3,7 @@
 Title: WISECP PayPal Smart Payment Gateway
 
 Package: MaaxPayPal
-Version: 1.0.10
+Version: 1.0.11
 Author: Alex Mathias / Nadal Kumar / Peter Walker
 Website: //github.com/WebsiteDons/wisecp-module-paypal-smart-checkout
 Copyright: Copyright (C) 2009-2022 WebsiteDons.com
@@ -25,6 +25,7 @@ class MaaxPayPal extends PaymentGatewayModule
 	public $name,$commission=true;
 	public $config=[],$lang=[],$page_type = 'in-page',$callback_type='server-sided';
 	public $payform=false;
+	private $type = 'Payment';
 
 	function __construct() 
 	{
@@ -33,15 +34,15 @@ class MaaxPayPal extends PaymentGatewayModule
 		$this->name			= __CLASS__;
 		$this->makeConfig();
 		
-		$this->config		= Modules::Config('Payment',__CLASS__);
+		$this->config		= Modules::Config($this->type,__CLASS__);
 		$this->setting		= (isset(makeobj($this->config)->settings) ? makeobj($this->config)->settings : []);
-		$this->lang			= Modules::Lang('Payment',__CLASS__);
+		$this->lang			= Modules::Lang($this->type,__CLASS__);
 		$this->currency		= Money::Currency(Config::get('general/currency'))['code'];
 		
 		$this->payform		= __DIR__.'/pages/payform';
 		$this->xmlform		= __DIR__.'/form/form';
 		$this->actionUrl 	= getvar(Controllers::$init->getData('links')['controller']);
-		$this->notify_url	= Controllers::$init->CRLink('payment',[__CLASS__,$this->get_auth_token(),'callback']);
+		$this->notify_url	= Controllers::$init->CRLink($this->type,[__CLASS__,$this->get_auth_token(),'callback']);
 		$this->success_url	= Controllers::$init->CRLink('pay-successful');
 		$this->failed_url	= Controllers::$init->CRLink('pay-failed');
 		
@@ -82,17 +83,23 @@ return [
 	}
 
 	public function commission_fee_calculator($amount) {
-		$rate = $this->get_commission_rate();
+		$rate = $this->setting->transaction_fee;
 		
 		if( !$rate ) 
 			return 0;
-		$calculate = Money::get_discount_amount($amount,$rate);
 		
-		return $calculate;
+		if( $this->setting->flat_fee ) {
+			$val = $rate;
+		}else{
+			$val = Money::get_discount_amount($amount,$rate);
+		}
+		
+		return $val;
 	}
-
+	
 	public function get_commission_rate() {
-		return $this->setting->commission_rate;
+		
+		return $this->setting->transaction_fee;
 	}
 
 	public function cid_convert_code($id=0) {

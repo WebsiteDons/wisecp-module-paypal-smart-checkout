@@ -45,8 +45,13 @@ specific invoices to pay when in payment options view and the total value has be
 echo '<style>div.bulkpayment table {display: none !important;}</style>';
 ?>
 
-<div class="center alert alert-info">
-<p><?php echo $module->lang['total-now'].$module->val()->paytotal; ?></p>
+<div class="center">
+<?php if( strstr(currentUrl(), 'invoice-detail') ) { ?>
+<h5>Choose pay method</h5>
+<?php }else{ ?>
+<p class="alert alert-info"><?php echo $module->lang['total-now'].$module->val()->paytotal; ?></p>
+<h5>Choose pay method</h5>
+<?php } ?>
 </div>
 
 <?php
