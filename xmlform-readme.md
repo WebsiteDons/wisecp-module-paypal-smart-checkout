@@ -1,5 +1,5 @@
-# Using the XML form system
-This is method which allows a simplified markup method to create repetitive HTML formatting for form fields. 
+# Using the XML markup form system to add fields
+This is a method which allows a simplified markup method to create repetitive HTML formatting for form fields. 
 
 **Example**
 
@@ -14,9 +14,11 @@ Consider the action of adding the following HTML per form field. It gets quite t
 </div>
 ```
 
-**Now with the XML markup** File `form/form.xml`
+**Now with the XML markup** file `form/form.xml`
 
 Multiple fields added with various attributes
+
+**note** you only add within the `<fieldset>` tags `<field type="" name="" label="" />`. Below is just a complete visual of the file XML format.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
