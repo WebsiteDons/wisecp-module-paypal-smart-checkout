@@ -43,5 +43,7 @@ The HTML output is automated by `class.form.php`. Each field name will be detect
 ### Output a field value in checkout view
 Edit `pages/payform.php` and place the HTML above or below the PHP container for `echo $module->smartCheckout();` 
 ```html
-<p><?php echo (isset($module->setting->message) ? $module->setting->message:''); ?></p>
+<?php if( !empty($module->setting->message) ) { ?>
+<p><?php echo $module->setting->message; ?></p>
+<?php } ?>
 ```
