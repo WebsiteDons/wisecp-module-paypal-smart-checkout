@@ -1,6 +1,5 @@
 # Using the XML form system
 This is method which allows a simplified markup method to create repetitive HTML formatting for form fields. 
-File `form/form.xml`
 
 **Example**
 
@@ -15,7 +14,7 @@ Consider the action of adding the following HTML per form field. It gets quite t
 </div>
 ```
 
-**Now with the XML markup**
+**Now with the XML markup** File `form/form.xml`
 
 Multiple fields added with various attributes
 
@@ -40,7 +39,7 @@ Multiple fields added with various attributes
 The HTML output is automated by `class.form.php`. Each field name will be detected on `$_POST` and value written to `config.php`
 
 ### Output a field value in checkout view
-Edit `pages/payform.php`
+Edit `pages/payform.php` and place the HTML above or below `echo $module->smartCheckout();`
 ```html
 <p><?php echo (isset($module->setting->message) ? $module->setting->message:''); ?></p>
 ```
