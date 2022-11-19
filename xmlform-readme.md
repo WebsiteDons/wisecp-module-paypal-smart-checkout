@@ -1,12 +1,13 @@
 # Using the XML form system
-This is method which allows a simplified markup method to create repetitive HTML formatting for form fields.
+This is method which allows a simplified markup method to create repetitive HTML formatting for form fields. 
+File `form/form.xml`
 
 **Example**
 
 Consider the action of adding the following HTML per form field. It gets quite tedious and lead to clutter within the `.html` template file
 
 ```html
-<div class="controls">
+<div class="control-wrap">
   <div class="label"><label>Field Label</label></div>
   <div class="control">
     <input type="text" name="data" id="data" value="" placeholder="hint of what to enter" />
@@ -36,4 +37,4 @@ Multiple fields added with various attributes
   </fieldset>
 </form>
 ```
-The HTML output is handled by a PHP process.
+The HTML output is automated by `class.form.php`. Each field name will be detected on `$_POST` and value written to `config.php`
