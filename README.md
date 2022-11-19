@@ -1,4 +1,4 @@
-# WISECP module PayPal&copy; smart checkout
+# WISECP payment module PayPal&copy; smart checkout
 
 A payment module for WISECP E-Commerce application to allow a modal window for payment at checkout which avoids the transfer of the user to the PayPal website.
 
