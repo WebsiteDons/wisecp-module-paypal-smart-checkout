@@ -3,7 +3,7 @@ This is a method which allows a simplified markup method to create repetitive HT
 
 **Example**
 
-Consider the action of adding the following HTML per form field. It gets quite tedious and lead to clutter within the `.html` template file
+Consider the action of adding the following HTML per form field. It gets quite tedious and lead to clutter within the module's `pages/settings.php` template file. With this proces, there is no need to ever edit the file to add fields.
 
 ```html
 <div class="control-wrap">
