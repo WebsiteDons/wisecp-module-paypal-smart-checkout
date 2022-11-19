@@ -25,7 +25,7 @@ Multiple fields added with various attributes
     <field type="text" name="data" hint="what to enter" note="enter only alpha characters" label="Field Label" />
     <field type="textarea" name="message" fclass="wide-fat" label="The Message" />
     <field 
-           type="select" 
+           type="list" 
            name="selector" 
            options="{'juice':'Juice','wine':'Wine','water':'Water'}" 
            default="water" 
