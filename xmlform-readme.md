@@ -38,3 +38,9 @@ Multiple fields added with various attributes
 </form>
 ```
 The HTML output is automated by `class.form.php`. Each field name will be detected on `$_POST` and value written to `config.php`
+
+### Output a field value in checkout view
+Edit `pages/payform.php`
+```html
+<p><?php echo (isset($module->setting->message) ? $module->setting->message:''); ?></p>
+```
